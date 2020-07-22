@@ -30,26 +30,32 @@ public class IdleManager : MonoBehaviour
 	//Represent upgrade's level of a furniture
 	public int upgradeLevelFurniture;
 
+    //Represent the levels bar of a furniture 
+	public Image upgradeBar;
+
+	//Represent the number of levels after which the number of coins/second increase
+	public int levelThresholdUpgrade;
+
+	//These represent how the coins/second function increases: after the levels threshold ->
+	//incrementUpgrade = incrementUpgrade + rateUpgrade
+	public double rateUpgrade;
+
+	public double incrementUpgrade;
 
 	void Start()
     {
-        //Initialize total coins and coins earned by a furniture
-		ecoCoins = 0;
-		coinsFurniture = 0;
 
-		//Initialize upgrade's cost of a furniture
-		upgradeCostFurniture = 25;
-    }
+	}
 
-    void Update()
+	void Update()
     {
-		//If the upgrade's level of furniture is less than 3
-		//Update coins earned per sec with upgrade's level of a furniture
-		if (upgradeLevelFurniture <= 3)
+		//If the upgrade's level of furniture is less than a constant upgrade based on the type of furniture
+		//Update coins/second with upgrade's level of a furniture
+		if (upgradeLevelFurniture <= levelThresholdUpgrade)
 			coinsPerSec = upgradeLevelFurniture;
-        //Else increment coins earned per sec with a costant equal to 1.2
+        //Else increment coins/second with a gradual increment based on the type of furniture
 		else
-			coinsPerSec = upgradeLevelFurniture * 1.2;
+			coinsPerSec = upgradeLevelFurniture * incrementUpgrade;
 
         //Update text of number of coins earned (F0 is used to not have decimals in the text) 
         coinsFurnitureText.text = "+" + coinsFurniture.ToString("F0");
@@ -57,13 +63,13 @@ public class IdleManager : MonoBehaviour
         //Update text of total number of coins
 		ecoCoinsText.text = "" + ecoCoins.ToString("F0");
 
-		//Update text of coins earned per sec by a furniture
+		//Update text of coins/second by a furniture
 		coinsPerSecText.text  = coinsPerSec.ToString("F0") + " coins/s";
 
 		//Update text of furniture upgraded
 		upgradeFurnitureText.text = "Furniture Upgrade \nCost: " + upgradeCostFurniture.ToString("F0") + " coins\nClick\nLevel: " + upgradeLevelFurniture;
 
-		//Update the value of coins earned by a furniture with the value of coins earned per sec
+		//Update the value of coins earned by a furniture with the value of coins/second
 		//(Time.deltaTime to calculate the time in milliseconds between two frames, to guarantee
         //one coin per second)
 		coinsFurniture += coinsPerSec * Time.deltaTime;
@@ -99,12 +105,27 @@ public class IdleManager : MonoBehaviour
         //- decrease the total number of coins based on cost of upgrade
         //- increase the cost of upgrade of a constant equal to 1.07
         //(based on some of the most popular idle games)
+        //- increase the upgrade bar of levels
 		if (ecoCoins >= upgradeCostFurniture)
 		{
 			upgradeLevelFurniture++;
 			ecoCoins -= upgradeCostFurniture;
 			upgradeCostFurniture *= 1.07;
+
+            //If bar's amount is bigger than 0.95
+            //the bar is reset and the increment upgrade is added up by a percentage
+			if (upgradeBar.fillAmount > 0.95)
+			{
+				upgradeBar.fillAmount = 0;
+				incrementUpgrade += rateUpgrade;
+			}
+
+            //Else the bar increases of a fraction based on constant upgrade
+			else
+				upgradeBar.fillAmount += (float) 1 / levelThresholdUpgrade;
 		}
+
+	
 	}
 
 }
