@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class IdleManager : MonoBehaviour
@@ -14,6 +15,9 @@ public class IdleManager : MonoBehaviour
 
 	//Show upgrade forniture
 	public Text upgradeFurnitureText;
+
+	//Show cost of furniture
+	public Text costFurnitureText;
 
 	//Represent total number of coins
 	public double ecoCoins;
@@ -58,20 +62,22 @@ public class IdleManager : MonoBehaviour
 			coinsPerSec = upgradeLevelFurniture * incrementUpgrade;
 
         //Update text of number of coins earned (F0 is used to not have decimals in the text) 
-        coinsFurnitureText.text = "+" + coinsFurniture.ToString("F0");
+        coinsFurnitureText.text = "+" + ChangeNumber(coinsFurniture);
 
         //Update text of total number of coins
-		ecoCoinsText.text = "" + ecoCoins.ToString("F0");
+		ecoCoinsText.text = "" + ChangeNumber(ecoCoins);
 
 		//Update text of coins/second by a furniture
-		coinsPerSecText.text  = coinsPerSec.ToString("F0") + " coins/s";
+		coinsPerSecText.text  = ChangeNumber(coinsPerSec) + " coins/s";
 
 		//Update text of furniture upgraded
-		upgradeFurnitureText.text = "Furniture Upgrade \nCost: " + upgradeCostFurniture.ToString("F0") + " coins\nClick\nLevel: " + upgradeLevelFurniture;
+		upgradeFurnitureText.text = "UPGRADE\nLevel: " + upgradeLevelFurniture;
+
+		costFurnitureText.text = "- " + ChangeNumber(upgradeCostFurniture);
 
 		//Update the value of coins earned by a furniture with the value of coins/second
 		//(Time.deltaTime to calculate the time in milliseconds between two frames, to guarantee
-        //one coin per second)
+		//one coin per second)
 		coinsFurniture += coinsPerSec * Time.deltaTime;
 
 	}
@@ -126,6 +132,20 @@ public class IdleManager : MonoBehaviour
 		}
 
 	
+	}
+
+	//Method to change the value of numerical texts and reduce their length
+	public string ChangeNumber(double amount)
+	{
+		string value;
+
+		if (amount >= 1000000)
+			value = Math.Floor(amount / 1000000).ToString("F0") + "M";
+		else if (amount >= 1000)
+			value = Math.Floor(amount / 1000).ToString("F0") + "K";
+		else
+			value = amount.ToString("F0");
+		return value;
 	}
 
 }
