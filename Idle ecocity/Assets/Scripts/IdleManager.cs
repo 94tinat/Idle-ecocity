@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IdleManager : MonoBehaviour
@@ -10,14 +10,16 @@ public class IdleManager : MonoBehaviour
 	//Show number of coins earned by a furniture
 	public Text coinsFurnitureText;
 
-	//Show number of coins earned per second by a furniture
-	public Text coinsPerSecText;
+	//Represent the button about to manually earn coins 
+	public Button clickToEarn;
 
-	//Show upgrade forniture
-	public Text upgradeFurnitureText;
+	//Represent the bar of livability
+	public Image livabilityBar;
 
-	//Show cost of furniture
-	public Text costFurnitureText;
+	public Image nextAreaLock;
+
+	//Represent the autoplay enabled when a furniture is upgraded
+	public Image progressionBar;
 
 	//Represent total number of coins
 	public double ecoCoins;
@@ -25,113 +27,40 @@ public class IdleManager : MonoBehaviour
 	//Represent number of coins earned by a furniture
 	public double coinsFurniture;
 
-	//Represent number of coins earned per second by a furniture
-	public double coinsPerSec;
-
-	//Represent upgrade's cost of a furniture
-	public double upgradeCostFurniture;
-
-	//Represent upgrade's level of a furniture
-	public int upgradeLevelFurniture;
-
-    //Represent the levels bar of a furniture 
-	public Image upgradeBar;
-
-	//Represent the number of levels after which the number of coins/second increase
-	public int levelThresholdUpgrade;
-
-	//These represent how the coins/second function increases: after the levels threshold ->
-	//incrementUpgrade = incrementUpgrade + rateUpgrade
-	public double rateUpgrade;
-
-	public double incrementUpgrade;
-
-	void Start()
+    void Update()
     {
 
-	}
+		//Update text of number of coins earned (F0 is used to not have decimals in the text) 
+		coinsFurnitureText.text = "+" + ChangeNumber(coinsFurniture);
 
-	void Update()
-    {
-		//If the upgrade's level of furniture is less than a constant upgrade based on the type of furniture
-		//Update coins/second with upgrade's level of a furniture
-		if (upgradeLevelFurniture <= levelThresholdUpgrade)
-			coinsPerSec = upgradeLevelFurniture;
-        //Else increment coins/second with a gradual increment based on the type of furniture
-		else
-			coinsPerSec = upgradeLevelFurniture * incrementUpgrade;
-
-        //Update text of number of coins earned (F0 is used to not have decimals in the text) 
-        coinsFurnitureText.text = "+" + ChangeNumber(coinsFurniture);
-
-        //Update text of total number of coins
+		//Update text of total number of coins
 		ecoCoinsText.text = "" + ChangeNumber(ecoCoins);
 
-		//Update text of coins/second by a furniture
-		coinsPerSecText.text  = ChangeNumber(coinsPerSec) + " coins/s";
-
-		//Update text of furniture upgraded
-		upgradeFurnitureText.text = "UPGRADE\nLevel: " + upgradeLevelFurniture;
-
-		costFurnitureText.text = "- " + ChangeNumber(upgradeCostFurniture);
-
-		//Update the value of coins earned by a furniture with the value of coins/second
-		//(Time.deltaTime to calculate the time in milliseconds between two frames, to guarantee
-		//one coin per second)
-		coinsFurniture += coinsPerSec * Time.deltaTime;
+		if(livabilityBar.fillAmount >= 0.8)
+			nextAreaLock.gameObject.SetActive(false);
 
 	}
 
-	//Method to earn coins by a furniture, clicking on it
+	//Method to earn coins manually by a furniture, clicking on it
 	public void ClickToIncreaseCoins()
-    {
-        //If upgrade's level of a furniture is 0 (so it's still early),
-        //increase number of coins by hand, clicking on button
-        if(upgradeLevelFurniture == 0)
-		{
-			coinsFurniture += 1;
-            //Total number of coins is equal to coins earned by a furniture
-			ecoCoins = coinsFurniture;
-		}
+	{
+		coinsFurniture += 1;
 
-        //Else update total number of coins with coins earned by a furniture
-        //and reset the coins of the furniture
-        else
-		{
-			ecoCoins += coinsFurniture;
-			coinsFurniture = 0;
-		}
+		//Total number of coins is equal to coins earned by a furniture
+		ecoCoins = coinsFurniture;
 	}
 
-    //Method to upgrade a furniture
-	public void BuyUpgradeFurniture()
-	{
-        //If the total number of coins is enough to buy an upgrade:
-        //- increase the upgrade's level of furniture
-        //- decrease the total number of coins based on cost of upgrade
-        //- increase the cost of upgrade of a constant equal to 1.07
-        //(based on some of the most popular idle games)
-        //- increase the upgrade bar of levels
-		if (ecoCoins >= upgradeCostFurniture)
-		{
-			upgradeLevelFurniture++;
-			ecoCoins -= upgradeCostFurniture;
-			upgradeCostFurniture *= 1.07;
+	//Method to update the total number of coins with coins earned by a furniture
+	public void AutoPlayFurniture()
+    {
+		ecoCoins += coinsFurniture;
 
-            //If bar's amount is bigger than 0.95
-            //the bar is reset and the increment upgrade is added up by a percentage
-			if (upgradeBar.fillAmount > 0.95)
-			{
-				upgradeBar.fillAmount = 0;
-				incrementUpgrade += rateUpgrade;
-			}
+		//Reset the coins of the furniture
+		coinsFurniture = 0;
 
-            //Else the bar increases of a fraction based on constant upgrade
-			else
-				upgradeBar.fillAmount += (float) 1 / levelThresholdUpgrade;
-		}
+		progressionBar.fillAmount = 0;
 
-	
+
 	}
 
 	//Method to change the value of numerical texts and reduce their length
@@ -140,12 +69,20 @@ public class IdleManager : MonoBehaviour
 		string value;
 
 		if (amount >= 1000000)
-			value = Math.Floor(amount / 1000000).ToString("F0") + "M";
+			value = (amount / 1000000).ToString("F1") + "M";
+
 		else if (amount >= 1000)
-			value = Math.Floor(amount / 1000).ToString("F0") + "K";
+			value = (amount / 1000).ToString("F1") + "K";
+
 		else
 			value = amount.ToString("F0");
+
 		return value;
+	}
+
+	public void GoToMinigame(string minigame)
+	{
+		SceneManager.LoadScene(minigame);
 	}
 
 }
