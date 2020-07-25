@@ -10,11 +10,24 @@ public class DragAndDropHandler : MonoBehaviour, IPointerDownHandler, IBeginDrag
     //Canvas of item
     private CanvasGroup canvasGroup;
 
+    //Boolean to check if the item is dropped
+    public bool validDrop;
+
+    //The initial position of item
+    private Vector2 startingPosition;
+
+    private void Start()
+    {
+        //Save the initial position of item
+        startingPosition = GetComponent<RectTransform>().localPosition;
+    }
+
     //Method to initialize variables before the Start
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        
     }
 
     //Implementation of interface related to detect the begin of drag
@@ -27,6 +40,10 @@ public class DragAndDropHandler : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
         //Raycast goes through this item, allowing to be detected
         canvasGroup.blocksRaycasts = false;
+
+        //Set the drop of item to false
+        validDrop = false;
+
     }
 
     //Implementation of interface related to detect the drag
@@ -43,12 +60,19 @@ public class DragAndDropHandler : MonoBehaviour, IPointerDownHandler, IBeginDrag
     //Implementation of interface related to detect the end of drag
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("On end");
-
+        Debug.Log("On end drag");
         canvasGroup.alpha = 1f;
 
         //Return to block raycasts through this item
         canvasGroup.blocksRaycasts = true;
+
+        //If the item isn't dropped
+        //Set it to the initial position
+        if (!validDrop)
+        {
+            validDrop = false;
+            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = startingPosition;
+        }
 
     }
 
