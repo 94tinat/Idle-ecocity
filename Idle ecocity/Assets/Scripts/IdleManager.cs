@@ -43,7 +43,11 @@ public class IdleManager : MonoBehaviour
 	//Represent number of coins earned by a furniture
 	public double coinsFurniture;
 
+	//Represent boolean if a furniture is locked
 	private bool lockedFurniture;
+
+	//The threshold after which the minigame is unlocked
+	public float livabilityThreshold;
 
     private void Start()
     {
@@ -60,7 +64,9 @@ public class IdleManager : MonoBehaviour
 		//Update text of total number of coins
 		ecoCoinsText.text = "" + ChangeNumber(ecoCoins);
 
-		if(livabilityBar.fillAmount >= 0.8)
+		//If the livability bar is bigger than a threshold
+		//the minigame is activated
+		if(livabilityBar.fillAmount >= livabilityThreshold)
 			nextAreaLock.gameObject.SetActive(false);
 
 		StartCoroutine(Save());
@@ -118,6 +124,7 @@ public class IdleManager : MonoBehaviour
 		ecoCoins = double.Parse(PlayerPrefs.GetString("ecoCoins", "0"));
 		coinsFurniture = double.Parse(PlayerPrefs.GetString("coinsFurniture", "0"));
 		lockedFurniture = bool.Parse(PlayerPrefs.GetString("lockFurniture", true.ToString()));
+		livabilityBar.fillAmount = PlayerPrefs.GetFloat("livabilityBar", 0f);
 
 		//Once unlocked a furniture must be unlocked (also the upgrade)
 		if (lockedFurniture == false)
@@ -140,6 +147,7 @@ public class IdleManager : MonoBehaviour
 		PlayerPrefs.SetString("ecoCoins", ecoCoins.ToString());
 		PlayerPrefs.SetString("coinsFurniture", coinsFurniture.ToString());
 		PlayerPrefs.SetString("lockFurniture", false.ToString());
+		PlayerPrefs.SetFloat("livabilityBar", livabilityBar.fillAmount);
 	}
 
 }
