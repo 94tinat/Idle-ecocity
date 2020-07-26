@@ -52,7 +52,6 @@ public class TabGroup : MonoBehaviour
                     objectsToSwap[i].SetActive(i == index);
                 }
             }
-  
         }
 
         //Else the selected tab will be the current tab and select its panel
@@ -67,6 +66,5 @@ public class TabGroup : MonoBehaviour
                 objectsToSwap[i].SetActive(i == index);
             }
         }
-  
     }
 }

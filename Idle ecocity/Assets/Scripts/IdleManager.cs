@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -13,9 +14,24 @@ public class IdleManager : MonoBehaviour
 	//Represent the button about to manually earn coins 
 	public Button clickToEarn;
 
+	//Represent the button when the furniture is locked
+	public Button lockFurniture;
+
+	//Represent the button when the furniture upgrade is locked
+	public Button lockUpgrade;
+
+	//Represent the button when the furniture upgrade is unlocked
+	public Button unlockUpgrade;
+
+	//Represent the game object when the furniture is unlocked
+	public GameObject unlockFurniture;
+
+	public GameObject autoplay;
+
 	//Represent the bar of livability
 	public Image livabilityBar;
 
+	//Represent the image to go to next area
 	public Image nextAreaLock;
 
 	//Represent the autoplay enabled when a furniture is upgraded
@@ -27,7 +43,15 @@ public class IdleManager : MonoBehaviour
 	//Represent number of coins earned by a furniture
 	public double coinsFurniture;
 
-    void Update()
+	private bool lockedFurniture;
+
+    private void Start()
+    {
+		//Load the variables
+		Load();
+	}
+
+	void Update()
     {
 
 		//Update text of number of coins earned (F0 is used to not have decimals in the text) 
@@ -38,6 +62,8 @@ public class IdleManager : MonoBehaviour
 
 		if(livabilityBar.fillAmount >= 0.8)
 			nextAreaLock.gameObject.SetActive(false);
+
+		StartCoroutine(Save());
 
 	}
 
@@ -55,11 +81,10 @@ public class IdleManager : MonoBehaviour
     {
 		ecoCoins += coinsFurniture;
 
-		//Reset the coins of the furniture
+		//Reset the coins of the furniture and the progression bar
 		coinsFurniture = 0;
 
 		progressionBar.fillAmount = 0;
-
 
 	}
 
@@ -80,9 +105,41 @@ public class IdleManager : MonoBehaviour
 		return value;
 	}
 
+	//Method to load the minigame scene
 	public void GoToMinigame(string minigame)
 	{
 		SceneManager.LoadScene(minigame);
+	}
+
+	//Method to load variables
+	public void Load()
+    {
+		//Load the last value saved (initialized to initial value)
+		ecoCoins = double.Parse(PlayerPrefs.GetString("ecoCoins", "0"));
+		coinsFurniture = double.Parse(PlayerPrefs.GetString("coinsFurniture", "0"));
+		lockedFurniture = bool.Parse(PlayerPrefs.GetString("lockFurniture", true.ToString()));
+
+		//Once unlocked a furniture must be unlocked (also the upgrade)
+		if (lockedFurniture == false)
+        {
+			lockFurniture.gameObject.SetActive(false);
+			lockUpgrade.gameObject.SetActive(false);
+			unlockFurniture.SetActive(true);
+			unlockUpgrade.gameObject.SetActive(true);
+			
+		}
+
+	}
+
+	//Method to save variables, using a coruoutine to save every 3 seconds
+	IEnumerator Save()
+    {
+		yield return new WaitForSeconds(3);
+
+		//Set the current value of coins and coins earn by a furniture
+		PlayerPrefs.SetString("ecoCoins", ecoCoins.ToString());
+		PlayerPrefs.SetString("coinsFurniture", coinsFurniture.ToString());
+		PlayerPrefs.SetString("lockFurniture", false.ToString());
 	}
 
 }
