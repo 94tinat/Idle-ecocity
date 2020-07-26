@@ -142,7 +142,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 310617736}
-  m_RootOrder: 34
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 45355764}
   m_Layer: 5
   m_Name: ObstaclesDraggable
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +224,7 @@ RectTransform:
   m_Children:
   - {fileID: 1169189416}
   m_Father: {fileID: 310617736}
-  m_RootOrder: 35
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   validDrop: 0
+  tileReference: {fileID: 0}
 --- !u!114 &45355765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +307,7 @@ GameObject:
   - component: {fileID: 92705943}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,7 +404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 118, y: -119.299805}
+  m_AnchoredPosition: {x: 118, y: -119.30078}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &129010153
@@ -509,7 +510,7 @@ GameObject:
   - component: {fileID: 141067643}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -697,9 +698,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 194952714}
+  - component: {fileID: 194952715}
   m_Layer: 5
   m_Name: Tile15
-  m_TagString: Untagged
+  m_TagString: 15
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -726,6 +728,18 @@ RectTransform:
   m_AnchoredPosition: {x: 179, y: -484}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &194952715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194952713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &201649146
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +753,7 @@ GameObject:
   - component: {fileID: 201649148}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,6 +814,109 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201649146}
   m_CullTransparentMesh: 0
+--- !u!1 &215052747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215052748}
+  - component: {fileID: 215052752}
+  - component: {fileID: 215052751}
+  - component: {fileID: 215052750}
+  - component: {fileID: 215052749}
+  m_Layer: 5
+  m_Name: SolarPanelDraggable2
+  m_TagString: solarPanel
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &215052748
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215052747}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1630889355}
+  m_Father: {fileID: 310617736}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -413.20007, y: -977}
+  m_SizeDelta: {x: 318, y: 262}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &215052749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215052747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df429e3f02a154192ba4d66f1b56a2b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validDrop: 0
+  tileReference: {fileID: 0}
+--- !u!225 &215052750
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215052747}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &215052751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215052747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &215052752
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215052747}
+  m_CullTransparentMesh: 0
 --- !u!1 &215504510
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +931,7 @@ GameObject:
   - component: {fileID: 215504512}
   m_Layer: 5
   m_Name: Slot16
-  m_TagString: Untagged
+  m_TagString: 16
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -900,7 +1017,7 @@ GameObject:
   - component: {fileID: 274998836}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -970,9 +1087,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 286886336}
+  - component: {fileID: 286886337}
   m_Layer: 5
   m_Name: Tile6
-  m_TagString: Untagged
+  m_TagString: 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1000,6 +1118,18 @@ RectTransform:
   m_AnchoredPosition: {x: -175, y: 155}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &286886337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286886335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &310617735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,9 +1139,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 310617736}
+  - component: {fileID: 310617737}
   m_Layer: 5
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: gridManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1061,6 +1192,8 @@ RectTransform:
   - {fileID: 215504511}
   - {fileID: 2067494705}
   - {fileID: 1970388656}
+  - {fileID: 215052748}
+  - {fileID: 964578233}
   - {fileID: 9560737}
   - {fileID: 45355763}
   - {fileID: 519731518}
@@ -1072,6 +1205,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1440, y: 1307.8}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &310617737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310617735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c90d5a70a9d4225b11951453b916ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileList:
+  - {fileID: 685226876}
+  - {fileID: 1482230168}
+  - {fileID: 1284556638}
+  - {fileID: 659008784}
+  - {fileID: 410784954}
+  - {fileID: 286886337}
+  - {fileID: 403043643}
+  - {fileID: 1171648191}
+  - {fileID: 1687429382}
+  - {fileID: 706334750}
+  - {fileID: 571408195}
+  - {fileID: 1488377899}
+  - {fileID: 1796077582}
+  - {fileID: 610250648}
+  - {fileID: 194952715}
+  - {fileID: 2067494706}
 --- !u!1 &330826124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1248,7 @@ GameObject:
   - component: {fileID: 330826126}
   m_Layer: 5
   m_Name: Slot15
-  m_TagString: Untagged
+  m_TagString: 15
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1172,7 +1334,7 @@ GameObject:
   - component: {fileID: 363094448}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1246,7 +1408,7 @@ GameObject:
   - component: {fileID: 363810236}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1316,9 +1478,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403043642}
+  - component: {fileID: 403043643}
   m_Layer: 5
   m_Name: Tile7
-  m_TagString: Untagged
+  m_TagString: 7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1347,6 +1510,18 @@ RectTransform:
   m_AnchoredPosition: {x: 179, y: 155}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &403043643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403043641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &404246928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,7 +1535,7 @@ GameObject:
   - component: {fileID: 404246930}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1430,9 +1605,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 410784953}
+  - component: {fileID: 410784954}
   m_Layer: 5
   m_Name: Tile5
-  m_TagString: Untagged
+  m_TagString: 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1460,6 +1636,18 @@ RectTransform:
   m_AnchoredPosition: {x: -533.5, y: 155}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &410784954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410784952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &421485898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,7 +1661,7 @@ GameObject:
   - component: {fileID: 421485900}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1547,7 +1735,7 @@ GameObject:
   - component: {fileID: 431748875}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1622,7 +1810,7 @@ GameObject:
   - component: {fileID: 438765645}
   m_Layer: 5
   m_Name: Slot7
-  m_TagString: Untagged
+  m_TagString: 7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1708,7 +1896,7 @@ GameObject:
   - component: {fileID: 439660007}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1848,7 +2036,7 @@ GameObject:
   - component: {fileID: 470013263}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1996,7 +2184,7 @@ GameObject:
   - component: {fileID: 512435758}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2087,7 +2275,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 310617736}
-  m_RootOrder: 36
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2149,7 +2337,7 @@ GameObject:
   - component: {fileID: 533079359}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2224,7 +2412,7 @@ GameObject:
   - component: {fileID: 561231738}
   m_Layer: 5
   m_Name: Slot9
-  m_TagString: Untagged
+  m_TagString: 9
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2306,9 +2494,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 571408194}
+  - component: {fileID: 571408195}
   m_Layer: 5
   m_Name: Tile11
-  m_TagString: Untagged
+  m_TagString: 11
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2336,6 +2525,18 @@ RectTransform:
   m_AnchoredPosition: {x: 179, y: -163}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &571408195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571408193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &599211219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,7 +2629,7 @@ GameObject:
   - component: {fileID: 599515564}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2498,9 +2699,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 610250647}
+  - component: {fileID: 610250648}
   m_Layer: 5
   m_Name: Tile14
-  m_TagString: Untagged
+  m_TagString: 14
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2527,6 +2729,18 @@ RectTransform:
   m_AnchoredPosition: {x: -175, y: -484}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &610250648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610250646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &616863967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,7 +2754,7 @@ GameObject:
   - component: {fileID: 616863969}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2614,7 +2828,7 @@ GameObject:
   - component: {fileID: 643639006}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2684,9 +2898,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 659008783}
+  - component: {fileID: 659008784}
   m_Layer: 5
   m_Name: Tile4
-  m_TagString: Untagged
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2713,6 +2928,18 @@ RectTransform:
   m_AnchoredPosition: {x: 539, y: 478.8}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &659008784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659008782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &685226874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,9 +2949,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685226875}
+  - component: {fileID: 685226876}
   m_Layer: 5
   m_Name: Tile1
-  m_TagString: Untagged
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2753,6 +2981,18 @@ RectTransform:
   m_AnchoredPosition: {x: -538, y: 478}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &685226876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685226874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &706334748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,9 +3002,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 706334749}
+  - component: {fileID: 706334750}
   m_Layer: 5
   m_Name: Tile10
-  m_TagString: Untagged
+  m_TagString: 10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2792,6 +3033,18 @@ RectTransform:
   m_AnchoredPosition: {x: -175, y: -163}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &706334750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706334748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &741476592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,7 +3058,7 @@ GameObject:
   - component: {fileID: 741476594}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2879,7 +3132,7 @@ GameObject:
   - component: {fileID: 822318975}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2954,7 +3207,7 @@ GameObject:
   - component: {fileID: 847796021}
   m_Layer: 5
   m_Name: Slot12
-  m_TagString: Untagged
+  m_TagString: 12
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3040,7 +3293,7 @@ GameObject:
   - component: {fileID: 848156140}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3115,7 +3368,7 @@ GameObject:
   - component: {fileID: 858794198}
   m_Layer: 5
   m_Name: Slot2
-  m_TagString: Untagged
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3201,7 +3454,7 @@ GameObject:
   - component: {fileID: 879737512}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3275,7 +3528,7 @@ GameObject:
   - component: {fileID: 926766870}
   m_Layer: 5
   m_Name: House2
-  m_TagString: Untagged
+  m_TagString: house
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3350,7 +3603,7 @@ GameObject:
   - component: {fileID: 935745207}
   m_Layer: 5
   m_Name: Slot1
-  m_TagString: Untagged
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3436,7 +3689,7 @@ GameObject:
   - component: {fileID: 946695141}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3510,7 +3763,7 @@ GameObject:
   - component: {fileID: 947846896}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3571,6 +3824,109 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947846894}
   m_CullTransparentMesh: 0
+--- !u!1 &964578232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964578233}
+  - component: {fileID: 964578237}
+  - component: {fileID: 964578236}
+  - component: {fileID: 964578235}
+  - component: {fileID: 964578234}
+  m_Layer: 5
+  m_Name: SolarPanelDraggable3
+  m_TagString: solarPanel
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &964578233
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964578232}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1533571713}
+  m_Father: {fileID: 310617736}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -413.20007, y: -977}
+  m_SizeDelta: {x: 318, y: 262}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &964578234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964578232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df429e3f02a154192ba4d66f1b56a2b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validDrop: 0
+  tileReference: {fileID: 0}
+--- !u!225 &964578235
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964578232}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &964578236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964578232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &964578237
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964578232}
+  m_CullTransparentMesh: 0
 --- !u!1 &1035365459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,7 +3940,7 @@ GameObject:
   - component: {fileID: 1035365461}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3658,7 +4014,7 @@ GameObject:
   - component: {fileID: 1056518081}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3732,7 +4088,7 @@ GameObject:
   - component: {fileID: 1059584733}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3806,7 +4162,7 @@ GameObject:
   - component: {fileID: 1069865480}
   m_Layer: 5
   m_Name: House3
-  m_TagString: Untagged
+  m_TagString: house
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3880,7 +4236,7 @@ GameObject:
   - component: {fileID: 1075435714}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3954,7 +4310,7 @@ GameObject:
   - component: {fileID: 1084353772}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4098,9 +4454,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1171648190}
+  - component: {fileID: 1171648191}
   m_Layer: 5
   m_Name: Tile8
-  m_TagString: Untagged
+  m_TagString: 8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4127,6 +4484,18 @@ RectTransform:
   m_AnchoredPosition: {x: 539, y: 155}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1171648191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171648189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1181621419
 GameObject:
   m_ObjectHideFlags: 0
@@ -4141,7 +4510,7 @@ GameObject:
   - component: {fileID: 1181621421}
   m_Layer: 5
   m_Name: Slot5
-  m_TagString: Untagged
+  m_TagString: 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4227,7 +4596,7 @@ GameObject:
   - component: {fileID: 1218170277}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4297,9 +4666,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1284556637}
+  - component: {fileID: 1284556638}
   m_Layer: 5
   m_Name: Tile3
-  m_TagString: Untagged
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4327,6 +4697,18 @@ RectTransform:
   m_AnchoredPosition: {x: 179, y: 478.70007}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1284556638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284556636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1292051071
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,7 +4722,7 @@ GameObject:
   - component: {fileID: 1292051073}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4414,7 +4796,7 @@ GameObject:
   - component: {fileID: 1321523167}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4488,7 +4870,7 @@ GameObject:
   - component: {fileID: 1357065498}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4562,7 +4944,7 @@ GameObject:
   - component: {fileID: 1374494345}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4637,7 +5019,7 @@ GameObject:
   - component: {fileID: 1377635650}
   m_Layer: 5
   m_Name: Slot13
-  m_TagString: Untagged
+  m_TagString: 13
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4723,7 +5105,7 @@ GameObject:
   - component: {fileID: 1386495908}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4797,7 +5179,7 @@ GameObject:
   - component: {fileID: 1437353171}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4871,7 +5253,7 @@ GameObject:
   - component: {fileID: 1438736261}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4945,7 +5327,7 @@ GameObject:
   - component: {fileID: 1462169137}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5015,9 +5397,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1482230167}
+  - component: {fileID: 1482230168}
   m_Layer: 5
   m_Name: Tile2
-  m_TagString: Untagged
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5045,6 +5428,18 @@ RectTransform:
   m_AnchoredPosition: {x: -175, y: 478.70007}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1482230168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482230166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1488377897
 GameObject:
   m_ObjectHideFlags: 0
@@ -5054,9 +5449,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1488377898}
+  - component: {fileID: 1488377899}
   m_Layer: 5
   m_Name: Tile12
-  m_TagString: Untagged
+  m_TagString: 12
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5084,6 +5480,18 @@ RectTransform:
   m_AnchoredPosition: {x: 539, y: -163}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1488377899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488377897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1499633406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5097,7 +5505,7 @@ GameObject:
   - component: {fileID: 1499633408}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5171,7 +5579,7 @@ GameObject:
   - component: {fileID: 1509313899}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5231,6 +5639,93 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509313897}
+  m_CullTransparentMesh: 0
+--- !u!1 &1533571712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533571713}
+  - component: {fileID: 1533571716}
+  - component: {fileID: 1533571715}
+  - component: {fileID: 1533571714}
+  m_Layer: 5
+  m_Name: SolarPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1533571713
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533571712}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 964578233}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1533571714
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533571712}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1533571715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533571712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 95536a7810238db4abb5c02d9b700c92, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1533571716
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533571712}
   m_CullTransparentMesh: 0
 --- !u!1 &1549738895
 GameObject:
@@ -5324,7 +5819,7 @@ GameObject:
   - component: {fileID: 1563314220}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5398,7 +5893,7 @@ GameObject:
   - component: {fileID: 1564298694}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5473,7 +5968,7 @@ GameObject:
   - component: {fileID: 1589255773}
   m_Layer: 5
   m_Name: Slot8
-  m_TagString: Untagged
+  m_TagString: 8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5560,7 +6055,7 @@ GameObject:
   - component: {fileID: 1599976069}
   m_Layer: 5
   m_Name: Slot6
-  m_TagString: Untagged
+  m_TagString: 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5647,7 +6142,7 @@ GameObject:
   - component: {fileID: 1605124571}
   m_Layer: 5
   m_Name: Slot11
-  m_TagString: Untagged
+  m_TagString: 11
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5733,7 +6228,7 @@ GameObject:
   - component: {fileID: 1619754359}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5807,7 +6302,7 @@ GameObject:
   - component: {fileID: 1624777634}
   m_Layer: 5
   m_Name: House1
-  m_TagString: Untagged
+  m_TagString: house
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5868,6 +6363,93 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624777632}
   m_CullTransparentMesh: 0
+--- !u!1 &1630889354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1630889355}
+  - component: {fileID: 1630889358}
+  - component: {fileID: 1630889357}
+  - component: {fileID: 1630889356}
+  m_Layer: 5
+  m_Name: SolarPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1630889355
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630889354}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 215052748}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1630889356
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630889354}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1630889357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630889354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 95536a7810238db4abb5c02d9b700c92, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1630889358
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630889354}
+  m_CullTransparentMesh: 0
 --- !u!1 &1632096818
 GameObject:
   m_ObjectHideFlags: 0
@@ -5881,7 +6463,7 @@ GameObject:
   - component: {fileID: 1632096820}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5955,7 +6537,7 @@ GameObject:
   - component: {fileID: 1633246300}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6029,7 +6611,7 @@ GameObject:
   - component: {fileID: 1659338427}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6099,9 +6681,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1687429381}
+  - component: {fileID: 1687429382}
   m_Layer: 5
   m_Name: Tile9
-  m_TagString: Untagged
+  m_TagString: 9
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6129,6 +6712,18 @@ RectTransform:
   m_AnchoredPosition: {x: -533.5, y: -163}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1687429382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687429380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1690566594
 GameObject:
   m_ObjectHideFlags: 0
@@ -6142,7 +6737,7 @@ GameObject:
   - component: {fileID: 1690566596}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6216,7 +6811,7 @@ GameObject:
   - component: {fileID: 1716517968}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6291,7 +6886,7 @@ GameObject:
   - component: {fileID: 1730665737}
   m_Layer: 5
   m_Name: Slot3
-  m_TagString: Untagged
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6377,7 +6972,7 @@ GameObject:
   - component: {fileID: 1778270232}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6451,7 +7046,7 @@ GameObject:
   - component: {fileID: 1786390089}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6521,9 +7116,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1796077581}
+  - component: {fileID: 1796077582}
   m_Layer: 5
   m_Name: Tile13
-  m_TagString: Untagged
+  m_TagString: 13
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6550,6 +7146,18 @@ RectTransform:
   m_AnchoredPosition: {x: -533.5, y: -484}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1796077582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796077580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1830410568
 GameObject:
   m_ObjectHideFlags: 0
@@ -6563,7 +7171,7 @@ GameObject:
   - component: {fileID: 1830410570}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6637,7 +7245,7 @@ GameObject:
   - component: {fileID: 1855431709}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6711,7 +7319,7 @@ GameObject:
   - component: {fileID: 1875350373}
   m_Layer: 5
   m_Name: LongNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6786,7 +7394,7 @@ GameObject:
   - component: {fileID: 1884831459}
   m_Layer: 5
   m_Name: Slot10
-  m_TagString: Untagged
+  m_TagString: 10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6873,7 +7481,7 @@ GameObject:
   - component: {fileID: 1889492532}
   m_Layer: 5
   m_Name: Slot14
-  m_TagString: Untagged
+  m_TagString: 14
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6959,7 +7567,7 @@ GameObject:
   - component: {fileID: 1910575380}
   m_Layer: 5
   m_Name: ShortNodeV
-  m_TagString: Untagged
+  m_TagString: verticalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7033,7 +7641,7 @@ GameObject:
   - component: {fileID: 1917013691}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7107,7 +7715,7 @@ GameObject:
   - component: {fileID: 1935752728}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7334,7 +7942,7 @@ GameObject:
   - component: {fileID: 1970388657}
   m_Layer: 5
   m_Name: SolarPanelDraggable
-  m_TagString: Untagged
+  m_TagString: solarPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7372,6 +7980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   validDrop: 0
+  tileReference: {fileID: 0}
 --- !u!114 &1970388658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7682,7 +8291,7 @@ GameObject:
   - component: {fileID: 2030053729}
   m_Layer: 5
   m_Name: ShortNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7752,9 +8361,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2067494705}
+  - component: {fileID: 2067494706}
   m_Layer: 5
   m_Name: Tile16
-  m_TagString: Untagged
+  m_TagString: 16
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7780,6 +8390,18 @@ RectTransform:
   m_AnchoredPosition: {x: 539, y: -484}
   m_SizeDelta: {x: 350, y: 307}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2067494706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067494704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ec0662ea0d4b77987087150ea5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2092407541
 GameObject:
   m_ObjectHideFlags: 0
@@ -7794,7 +8416,7 @@ GameObject:
   - component: {fileID: 2092407543}
   m_Layer: 5
   m_Name: Slot4
-  m_TagString: Untagged
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7880,7 +8502,7 @@ GameObject:
   - component: {fileID: 2112425792}
   m_Layer: 5
   m_Name: LongNode
-  m_TagString: Untagged
+  m_TagString: horizontalNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
