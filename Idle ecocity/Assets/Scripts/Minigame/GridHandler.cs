@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GridHandler : MonoBehaviour, IDropHandler
 {
@@ -29,9 +30,6 @@ public class GridHandler : MonoBehaviour, IDropHandler
 
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
                 GetComponent<RectTransform>().anchoredPosition;
-
-            //Get tag of slot where there's the item
-            string tag = this.tag;
 
             //Get the tag of tile, that is the same of slot
             GameObject tileAnchored = GameObject.FindGameObjectsWithTag(tag)[1];

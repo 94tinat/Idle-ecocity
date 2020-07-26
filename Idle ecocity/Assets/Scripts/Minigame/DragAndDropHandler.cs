@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
     IDragHandler
@@ -77,7 +78,7 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
         canvasGroup.blocksRaycasts = true;
 
         //If the item isn't dropped
-        //Set it to the initial position
+        //set it to the initial position and increase count items
         if (!validDrop)
         {
             validDrop = false;
@@ -140,5 +141,4 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
             }
         }
     }
-
 }
