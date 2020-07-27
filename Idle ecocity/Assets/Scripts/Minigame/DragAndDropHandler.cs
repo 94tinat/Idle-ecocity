@@ -24,6 +24,14 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
     //The reference tile where there's the panel
     public Tile tileReference;
 
+    //Method to initialize variables before the Start
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
+
+    }
+
     private void Start()
     {
         //Save the initial position of item
@@ -31,14 +39,6 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
         //Initialize the grid manager game object
         gridManager = GameObject.FindWithTag("gridManager").GetComponent<GridManager>();
-    }
-
-    //Method to initialize variables before the Start
-    private void Awake()
-    {
-        rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();
-        
     }
 
     //Implementation of interface related to detect the begin of drag

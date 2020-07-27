@@ -111,10 +111,11 @@ public class IdleManager : MonoBehaviour
 		return value;
 	}
 
-	//Method to load the minigame scene
+	//Method to load the minigame scene, when the next area is unlocked
 	public void GoToMinigame(string minigame)
 	{
-		SceneManager.LoadScene(minigame);
+		if(!nextAreaLock.gameObject.activeSelf)
+			SceneManager.LoadScene(minigame);
 	}
 
 	//Method to load variables
