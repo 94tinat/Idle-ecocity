@@ -22,7 +22,7 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
     private GridManager gridManager;
 
     //The reference tile where there's the panel
-    public Tile tileReference;
+    public Tile referenceTile;
 
     //Method to initialize variables before the Start
     private void Awake()
@@ -51,11 +51,14 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
         //Raycast goes through this item, allowing to be detected
         canvasGroup.blocksRaycasts = false;
 
-        //Set the drop of item to false
-        validDrop = false;
+        if(validDrop)
+        {
+            //Disable connections of tile where there's the panel
+            DeactivateConnections();
 
-        //Disable connections of tile where there's the panel
-        DeactivateConnections();
+            validDrop = false;
+        }
+        
 
     }
 
@@ -101,14 +104,14 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
             {
                 //If the row contains the tile with panel
                 //deactivate it and its connections
-                if (grid[j].Contains(tileReference))
+                if (grid[j].Contains(referenceTile))
                 {
                     grid[j][i].IsActived(false, "verticalNode");
 
                     //If tile is the reference tile
                     //deactivate the vertical and horizontal connections
                     //based on tile position
-                    if (grid[j][i] == tileReference)
+                    if (grid[j][i] == referenceTile)
                     {
                         grid[j][i].IsActived(false, "horizontalNode");
                         switch (j)

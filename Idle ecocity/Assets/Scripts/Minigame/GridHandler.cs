@@ -9,6 +9,9 @@ public class GridHandler : MonoBehaviour, IDropHandler
     //The class of grid manager
     private GridManager gridManager;
 
+    //Boolean to check if it's present a house in a tile
+    private bool flag;
+
     private void Start()
     {
         //Initialize the grid manager game object
@@ -25,29 +28,58 @@ public class GridHandler : MonoBehaviour, IDropHandler
         //released, is set the anchor position to this position
         if (eventData.pointerDrag != null)
         {
-            //The item is dropped
-            item.validDrop = true;
+            //Initialize boolean to false
+            flag = false;
 
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
-                GetComponent<RectTransform>().anchoredPosition;
+            //If there is already a solar panel in the tile,
+            //the item can't be positioned in that tile, so
+            //it's not a valid drop and the flag is set to true
+            if (gameObject.CompareTag("gridManager")) flag = true;
 
-            //Get the tag of tile, that is the same of slot
-            GameObject tileAnchored = GameObject.FindGameObjectsWithTag(tag)[1];
+            //Initialize the tile, where will be inserted
+            //the reference tile anchored by the solar panel
+            Tile referenceTile = gameObject.AddComponent<Tile>();
 
-            Tile tileReference = tileAnchored.GetComponent<Tile>();
+            //Foreach game object with the script component "Tile",
+            //if the tag is the same of the slot anchored by the panel,
+            //the tile anchored will be this
+            foreach (Tile tile in FindObjectsOfType<Tile>())
+            {
+                if(CompareTag(tile.gameObject.tag)) referenceTile = tile;
+            }
 
-            //If the item in the slot is the solar panel
-            //activate connections of tile where there's the panel
-            if (item.gameObject.CompareTag("solarPanel"))
+            //For each child of tile, if it's present the house,
+            //the item can't be positioned in that tile, so
+            //it's not a valid drop and the flag is set to true
+            foreach (Transform child in referenceTile.gameObject.transform) {
+                if (child.gameObject.CompareTag("house")) flag = true;
+            }
 
-                ActivateConnections(tileReference, item);
+            //Else if it's a tile without a house or a solar panel,
+            //the item can be positioned
+            if(!flag)
+            {
+                //The item is dropped
+                item.validDrop = true;
 
+                //Anchor the item in the right position
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
+                    GetComponent<RectTransform>().anchoredPosition;
+              
+                //If the item in the slot is the solar panel
+                //activate connections of tile where there's the panel
+                if (item.gameObject.CompareTag("solarPanel"))
+                {
+                    ActivateConnections(referenceTile, item);
+                }     
+            }          
         }       
     }
 
     //Method to activate connections of tile where there's the panel
-    private void ActivateConnections(Tile tileReference, DragAndDropHandler item)
+    private void ActivateConnections(Tile refTile, DragAndDropHandler item)
     {
+
         //The grid with tiles
         List<List<Tile>> grid = gridManager.grid;
 
@@ -59,16 +91,19 @@ public class GridHandler : MonoBehaviour, IDropHandler
             {
                 //If the row contains the tile with panel
                 //activate it and its connections
-                if (grid[j].Contains(tileReference))
+                if (grid[j].Contains(refTile))
                 {
+
                     grid[j][i].IsActived(true, "verticalNode");
 
                     //If tile is the reference tile
                     //activate the vertical and horizontal connections
                     //based on tile position
-                    if (grid[j][i] == tileReference)
+                    if (grid[j][i] == refTile)
                     {
+
                         grid[j][i].IsActived(true, "horizontalNode");
+
                         switch (j)
                         {
                             case 0:
@@ -99,6 +134,8 @@ public class GridHandler : MonoBehaviour, IDropHandler
             }
         }
 
-        item.tileReference = tileReference;
+        //Assign the reference tile to the item dragged
+        item.referenceTile = refTile;
+
     }
 }
