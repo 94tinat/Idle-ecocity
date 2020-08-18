@@ -15,4 +15,17 @@ public class Tile: MonoBehaviour
 
     }
 
+    public bool HasHouse()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("house"))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

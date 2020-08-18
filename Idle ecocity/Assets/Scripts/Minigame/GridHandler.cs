@@ -90,45 +90,113 @@ public class GridHandler : MonoBehaviour, IDropHandler
             for (int i = 0; i < grid.Count; i++)
             {
                 //If the row contains the tile with panel
-                //activate it and its connections
-                if (grid[j].Contains(refTile))
+                //and if tile is the reference tile,
+                //activate the vertical and horizontal connections
+                //based on tile position. If there is a house in a tile,
+                //next (or previous) connections are broken
+                if (grid[j].Contains(refTile) && grid[j][i] == refTile)
                 {
-
                     grid[j][i].IsActived(true, "verticalNode");
+                    grid[j][i].IsActived(true, "horizontalNode");
 
-                    //If tile is the reference tile
-                    //activate the vertical and horizontal connections
-                    //based on tile position
-                    if (grid[j][i] == refTile)
+                    switch (j)
                     {
+                        case 0:
+                            grid[j + 1][i].IsActived(true, "horizontalNode");
+                            if (grid[j + 1][i].HasHouse()) break;
 
-                        grid[j][i].IsActived(true, "horizontalNode");
+                            grid[j + 2][i].IsActived(true, "horizontalNode");
+                            if (grid[j + 2][i].HasHouse()) break;
 
-                        switch (j)
-                        {
-                            case 0:
-                                grid[j + 1][i].IsActived(true, "horizontalNode");
-                                grid[j + 2][i].IsActived(true, "horizontalNode");
-                                grid[j + 3][i].IsActived(true, "horizontalNode");
-                                break;
+                            grid[j + 3][i].IsActived(true, "horizontalNode");
+                            if (grid[j + 3][i].HasHouse()) break;
 
-                            case 1:
-                                grid[j - 1][i].IsActived(true, "horizontalNode");
-                                grid[j + 1][i].IsActived(true, "horizontalNode");
-                                grid[j + 2][i].IsActived(true, "horizontalNode");
-                                break;
+                            break;
 
-                            case 2:
-                                grid[j - 2][i].IsActived(true, "horizontalNode");
-                                grid[j - 1][i].IsActived(true, "horizontalNode");
-                                grid[j + 1][i].IsActived(true, "horizontalNode");
-                                break;
-                            case 3:
-                                grid[j - 3][i].IsActived(true, "horizontalNode");
-                                grid[j - 2][i].IsActived(true, "horizontalNode");
-                                grid[j - 1][i].IsActived(true, "horizontalNode");
-                                break;
-                        }
+                        case 1:
+
+                            grid[j + 1][i].IsActived(true, "horizontalNode");
+                            if (grid[j + 1][i].HasHouse()) break;
+
+                            grid[j + 2][i].IsActived(true, "horizontalNode");
+                            if (grid[j + 2][i].HasHouse()) break;
+
+                            grid[j - 1][i].IsActived(true, "horizontalNode");
+
+                            break;
+
+                        case 2:
+
+                            grid[j - 1][i].IsActived(true, "horizontalNode");
+                            if (grid[j - 1][i].HasHouse()) break;
+
+                            grid[j - 2][i].IsActived(true, "horizontalNode");
+
+                            grid[j + 1][i].IsActived(true, "horizontalNode");
+
+                            break;
+
+                        case 3:
+
+                            grid[j - 1][i].IsActived(true, "horizontalNode");
+                            if (grid[j - 1][i].HasHouse()) break;
+
+                            grid[j - 2][i].IsActived(true, "horizontalNode");
+                            if (grid[j - 2][i].HasHouse()) break;
+
+                            grid[j - 3][i].IsActived(true, "horizontalNode");
+
+                            break;
+                    }
+
+                    switch (i)
+                    {
+                        case 0:
+                            grid[j][i + 1].IsActived(true, "verticalNode");
+                            if (grid[j][i + 1].HasHouse()) break;
+
+                            grid[j][i + 2].IsActived(true, "verticalNode");
+                            if (grid[j][i + 2].HasHouse()) break;
+
+                            grid[j][i + 3].IsActived(true, "verticalNode");
+                            if (grid[j][i + 3].HasHouse()) break;
+
+                            break;
+
+                        case 1:
+
+                            grid[j][i + 1].IsActived(true, "verticalNode");
+                            if (grid[j][i + 1].HasHouse()) break;
+
+                            grid[j][i + 2].IsActived(true, "verticalNode");
+                            if (grid[j][i + 2].HasHouse()) break;
+
+                            grid[j][i - 1].IsActived(true, "verticalNode");
+
+                            break;
+
+                        case 2:
+
+                            grid[j][i + 1].IsActived(true, "verticalNode");
+
+                            grid[j][i - 1].IsActived(true, "verticalNode");
+                            if (grid[j][i - 1].HasHouse()) break;
+
+                            grid[j][i - 2].IsActived(true, "verticalNode");
+
+                            break;
+
+                        case 3:
+
+                            grid[j][i - 1].IsActived(true, "verticalNode");
+                            if (grid[j][i - 1].HasHouse()) break;
+
+                            grid[j][i - 2].IsActived(true, "verticalNode");
+                            if (grid[j][i - 2].HasHouse()) break;
+
+                            grid[j][i - 3].IsActived(true, "verticalNode");
+
+                            break;
                     }
                 }
             }
