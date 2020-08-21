@@ -101,7 +101,9 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
         //The grid with tiles
         List<List<Tile>> grid = gridManager.grid;
 
-        referenceTile.HasPanel(false);
+        //If the reference tile exists, disable the panel flag
+        if(referenceTile != null)
+            referenceTile.HasPanel(false);
 
         //For each row
         for (int j = 0; j < grid.Count; j++)

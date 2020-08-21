@@ -75,13 +75,19 @@ public class GridHandler : MonoBehaviour, IDropHandler
                 //Anchor the item in the right position
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
                     GetComponent<RectTransform>().anchoredPosition;
-              
+
                 //If the item in the slot is the solar panel
                 //activate connections of tile where there's the panel
                 if (item.gameObject.CompareTag("solarPanel"))
-                {
                     ActivateConnections(referenceTile, item);
-                }     
+
+                //Else if the item is an obstacle, deactivate
+                //vertical and horizontal connections of tile
+                else if (item.gameObject.CompareTag("obstacle"))
+                {
+                    referenceTile.SetActivated(false, "horizontalNode");
+                    referenceTile.SetActivated(false, "verticalNode");
+                }
             }          
         }       
     }
@@ -92,6 +98,7 @@ public class GridHandler : MonoBehaviour, IDropHandler
         //The grid with tiles
         List<List<Tile>> grid = gridManager.grid;
 
+        //Set the panel flag to reference tile
         refTile.HasPanel(true);
 
         //For each row
@@ -115,10 +122,12 @@ public class GridHandler : MonoBehaviour, IDropHandler
                         case 0:
 
                             grid[j + 1][i].SetActivated(true, "horizontalNode");
-                            if (grid[j + 1][i].HasHouse()) break;
+                            if (grid[j + 1][i].HasHouse())
+                                break;
 
                             grid[j + 2][i].SetActivated(true, "horizontalNode");
-                            if (grid[j + 2][i].HasHouse()) break;
+                            if (grid[j + 2][i].HasHouse())
+                                break;
 
                             grid[j + 3][i].SetActivated(true, "horizontalNode");
                             grid[j + 3][i].HasHouse();
@@ -127,21 +136,24 @@ public class GridHandler : MonoBehaviour, IDropHandler
 
                         case 1:
 
-                            grid[j + 1][i].SetActivated(true, "horizontalNode");
-                            if (grid[j + 1][i].HasHouse()) break;
-
-                            grid[j + 2][i].SetActivated(true, "horizontalNode");
-                            if (grid[j + 2][i].HasHouse()) break;
-
                             grid[j - 1][i].SetActivated(true, "horizontalNode");
                             grid[j - 1][i].HasHouse();
+
+                            grid[j + 1][i].SetActivated(true, "horizontalNode");
+                            if (grid[j + 1][i].HasHouse())
+                                break;
+
+                            grid[j + 2][i].SetActivated(true, "horizontalNode");
+                            if (grid[j + 2][i].HasHouse())
+                                break;
 
                             break;
 
                         case 2:
 
                             grid[j - 1][i].SetActivated(true, "horizontalNode");
-                            if (grid[j - 1][i].HasHouse()) break;
+                            if (grid[j - 1][i].HasHouse())
+                                break;
 
                             grid[j - 2][i].SetActivated(true, "horizontalNode");
                             grid[j - 2][i].HasHouse();
@@ -154,10 +166,12 @@ public class GridHandler : MonoBehaviour, IDropHandler
                         case 3:
 
                             grid[j - 1][i].SetActivated(true, "horizontalNode");
-                            if (grid[j - 1][i].HasHouse()) break;
+                            if (grid[j - 1][i].HasHouse())
+                                break;
 
                             grid[j - 2][i].SetActivated(true, "horizontalNode");
-                            if (grid[j - 2][i].HasHouse()) break;
+                            if (grid[j - 2][i].HasHouse())
+                                break;
 
                             grid[j - 3][i].SetActivated(true, "horizontalNode");
                             grid[j - 3][i].HasHouse();
@@ -170,13 +184,16 @@ public class GridHandler : MonoBehaviour, IDropHandler
                         case 0:
 
                             grid[j][i + 1].SetActivated(true, "verticalNode");
-                            if (grid[j][i + 1].HasHouse()) break;
+                            if (grid[j][i + 1].HasHouse())
+                                break;
 
                             grid[j][i + 2].SetActivated(true, "verticalNode");
-                            if (grid[j][i + 2].HasHouse()) break;
+                            if (grid[j][i + 2].HasHouse())
+                                break;
 
                             grid[j][i + 3].SetActivated(true, "verticalNode");
-                            if (grid[j][i + 3].HasHouse()) break;
+                            if (grid[j][i + 3].HasHouse())
+                                break;
 
                             break;
 
@@ -186,10 +203,12 @@ public class GridHandler : MonoBehaviour, IDropHandler
                             grid[j][i - 1].HasHouse();
 
                             grid[j][i + 1].SetActivated(true, "verticalNode");
-                            if (grid[j][i + 1].HasHouse()) break;
+                            if (grid[j][i + 1].HasHouse())
+                                break;
 
                             grid[j][i + 2].SetActivated(true, "verticalNode");
-                            if (grid[j][i + 2].HasHouse()) break;
+                            if (grid[j][i + 2].HasHouse())
+                                break;
 
                             break;
 
@@ -199,7 +218,8 @@ public class GridHandler : MonoBehaviour, IDropHandler
                             grid[j][i + 1].HasHouse();
 
                             grid[j][i - 1].SetActivated(true, "verticalNode");
-                            if (grid[j][i - 1].HasHouse()) break;
+                            if (grid[j][i - 1].HasHouse())
+                                break;
 
                             grid[j][i - 2].SetActivated(true, "verticalNode");
                             grid[j][i - 2].HasHouse();
@@ -209,10 +229,12 @@ public class GridHandler : MonoBehaviour, IDropHandler
                         case 3:
 
                             grid[j][i - 1].SetActivated(true, "verticalNode");
-                            if (grid[j][i - 1].HasHouse()) break;
+                            if (grid[j][i - 1].HasHouse())
+                                break;
 
                             grid[j][i - 2].SetActivated(true, "verticalNode");
-                            if (grid[j][i - 2].HasHouse()) break;
+                            if (grid[j][i - 2].HasHouse())
+                                break;
 
                             grid[j][i - 3].SetActivated(true, "verticalNode");
                             grid[j][i - 3].HasHouse();
