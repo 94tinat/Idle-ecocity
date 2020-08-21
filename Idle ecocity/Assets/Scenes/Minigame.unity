@@ -644,7 +644,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 157797393}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 310617738}
+        m_MethodName: ConfirmMinigame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &157797393
@@ -846,7 +857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 977}
+  m_AnchoredPosition: {x: 242, y: 977}
   m_SizeDelta: {x: 318, y: 262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215052749
@@ -962,6 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &215504513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,6 +1252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 3
 --- !u!1 &330826124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,6 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &330826127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2074,6 +2088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &438765646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3157,6 +3172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &846392097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3244,6 +3260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &847796022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3405,6 +3422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &858794199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3640,6 +3658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &935745208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3844,7 +3863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &964578233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4547,6 +4566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &1181621422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5182,6 +5202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &1377635651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6131,6 +6152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &1589255774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6218,6 +6240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &1599976070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6305,6 +6328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &1605124572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6997,6 +7021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &1730665738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7505,6 +7530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &1884831460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7592,6 +7618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &1889492533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8041,7 +8068,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -459.99994, y: 977}
+  m_AnchoredPosition: {x: -217.99994, y: 977}
   m_SizeDelta: {x: 318, y: 262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1970388657
@@ -8457,6 +8484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08b3662b6c0c40bcae34b54ab36aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberHouses: 0
 --- !u!114 &2092407544
 MonoBehaviour:
   m_ObjectHideFlags: 0

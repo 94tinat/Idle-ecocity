@@ -21,6 +21,8 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
     //The class of grid manager
     private GridManager gridManager;
 
+    private GridHandler gridHandler;
+
     //The reference tile where there's the panel
     public Tile referenceTile;
 
@@ -39,6 +41,9 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
         //Initialize the grid manager game object
         gridManager = GameObject.FindWithTag("gridManager").GetComponent<GridManager>();
+
+        //Initialize the grid handler game object
+        gridHandler= GameObject.FindWithTag("gridManager").GetComponent<GridHandler>();
     }
 
     //Implementation of interface related to detect the begin of drag
@@ -96,6 +101,8 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
         //The grid with tiles
         List<List<Tile>> grid = gridManager.grid;
 
+        referenceTile.HasPanel(false);
+
         //For each row
         for (int j = 0; j < grid.Count; j++)
         {
@@ -106,40 +113,77 @@ public class DragAndDropHandler : MonoBehaviour, IBeginDragHandler, IEndDragHand
                 //deactivate it and its connections
                 if (grid[j].Contains(referenceTile))
                 {
-                    grid[j][i].IsActived(false, "verticalNode");
+                    grid[j][i].SetActivated(false, "verticalNode");
 
                     //If tile is the reference tile
                     //deactivate the vertical and horizontal connections
-                    //based on tile position
+                    //based on tile position and check if there is houses in tiles
                     if (grid[j][i] == referenceTile)
                     {
-                        grid[j][i].IsActived(false, "horizontalNode");
+                        grid[j][i].SetActivated(false, "horizontalNode");
                         switch (j)
                         {
                             case 0:
-                                grid[j + 1][i].IsActived(false, "horizontalNode");
-                                grid[j + 2][i].IsActived(false, "horizontalNode");
-                                grid[j + 3][i].IsActived(false, "horizontalNode");
+                                grid[j + 1][i].SetActivated(false, "horizontalNode");
+                                grid[j + 1][i].HasHouse();
+
+                                grid[j + 2][i].SetActivated(false, "horizontalNode");
+                                grid[j + 2][i].HasHouse();
+
+                                grid[j + 3][i].SetActivated(false, "horizontalNode");
+                                grid[j + 3][i].HasHouse();
+
                                 break;
 
                             case 1:
-                                grid[j - 1][i].IsActived(false, "horizontalNode");
-                                grid[j + 1][i].IsActived(false, "horizontalNode");
-                                grid[j + 2][i].IsActived(false, "horizontalNode");
+                                grid[j - 1][i].SetActivated(false, "horizontalNode");
+                                grid[j - 1][i].HasHouse();
+
+                                grid[j + 1][i].SetActivated(false, "horizontalNode");
+                                grid[j + 1][i].HasHouse();
+
+                                grid[j + 2][i].SetActivated(false, "horizontalNode");
+                                grid[j + 2][i].HasHouse();
+
                                 break;
 
                             case 2:
-                                grid[j - 2][i].IsActived(false, "horizontalNode");
-                                grid[j - 1][i].IsActived(false, "horizontalNode");
-                                grid[j + 1][i].IsActived(false, "horizontalNode");
+                                grid[j - 2][i].SetActivated(false, "horizontalNode");
+                                grid[j - 2][i].HasHouse();
+
+                                grid[j - 1][i].SetActivated(false, "horizontalNode");
+                                grid[j - 1][i].HasHouse();
+
+                                grid[j + 1][i].SetActivated(false, "horizontalNode");
+                                grid[j + 1][i].HasHouse();
+
                                 break;
+
                             case 3:
-                                grid[j - 3][i].IsActived(false, "horizontalNode");
-                                grid[j - 2][i].IsActived(false, "horizontalNode");
-                                grid[j - 1][i].IsActived(false, "horizontalNode");
+                                grid[j - 3][i].SetActivated(false, "horizontalNode");
+                                grid[j - 3][i].HasHouse();
+
+                                grid[j - 2][i].SetActivated(false, "horizontalNode");
+                                grid[j - 2][i].HasHouse();
+
+                                grid[j - 1][i].SetActivated(false, "horizontalNode");
+                                grid[j - 1][i].HasHouse();
+
                                 break;
                         }
                     }
+                }
+            }
+        }
+
+        //If any house is supplied, decrement the number
+        if(GridHandler.countSuppliedHouses > 0)
+        {
+            foreach (List<Tile> list in grid)
+            {
+                foreach (Tile t in list)
+                {
+                    if (t.CheckSupply()) GridHandler.countSuppliedHouses--;
                 }
             }
         }
